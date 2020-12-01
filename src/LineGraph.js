@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Line } from "react-chartjs-2";
-import { numeral } from "numeral";
+import numeral from "numeral";
 
 const options = {
   legend: {
@@ -64,7 +64,7 @@ const buildChartData = (data, caseType = "cases") => {
   return chartData;
 };
 
-function LineGraph() {
+function LineGraph({ caseType = "cases" }) {
   const [data, setData] = useState({});
 
   useEffect(() => {
@@ -73,12 +73,12 @@ function LineGraph() {
         .then((response) => response.json())
         .then((data) => {
           console.log(data);
-          const chartData = buildChartData(data, "cases");
+          const chartData = buildChartData(data, caseType);
           setData(chartData);
         });
     };
     fetchData();
-  }, []);
+  }, [caseType]);
 
   return (
     <div>
@@ -89,12 +89,11 @@ function LineGraph() {
             datasets: [
               {
                 backgroundColor: "rgba(255, 99, 132, 0.2)",
-                borderColor: "rgba(255, 99, 132, 1)",
+                borderColor: "#CC1034",
                 data: data,
               },
             ],
           }}
-          options
         ></Line>
       )}
     </div>
