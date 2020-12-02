@@ -32,15 +32,23 @@ body{
   }
 }
 .app-left-container{
-  flex: 0.9;
+  width: 100%;
+  margin: 10px;
 }
 .app-right-container{
-  display: flex;
-  flex-direction: column;
+  border-radius: 20px;
 }
-.app-graph{
-  flex-grow: 1;
+@media (max-width :990px){
+  .app-right-container{
+    margin-top: 10px;
+  }
 }
-.cases-padding{
-  padding: 10px;
+.app-info > h3 {
+  color: #6a5d5d;
+  font-weight: 400;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+.app-info > h3:last-of-type {
+  margin-top: 1rem;
 }

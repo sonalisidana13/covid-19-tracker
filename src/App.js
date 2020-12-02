@@ -94,30 +94,31 @@ function App() {
         </div>
 
         <div className="app-data">
+
           <InfoBox
-            active={caseType === "cases"}
             onClick={(e) => setCaseType("cases")}
-            title="Coronavirus Cases"
+            title="Confirmed"
             isRed
-            total={formatStats(countryInfo.cases)}
-            cases={formatStats(countryInfo.todayCases)}
+            active={caseType === "cases"}
+            total={countryInfo.cases}
+            cases={countryInfo.todayCases}
           ></InfoBox>
 
           <InfoBox
-            active={caseType === "recovered"}
             onClick={(e) => setCaseType("recovered")}
             title="Recovered"
-            total={formatStats(countryInfo.recovered)}
-            cases={formatStats(countryInfo.todayRecovered)}
+            active={caseType === "recovered"}
+            total={countryInfo.recovered}
+            cases={countryInfo.todayRecovered}
           ></InfoBox>
 
           <InfoBox
-            active={caseType === "deaths"}
             onClick={(e) => setCaseType("deaths")}
             title="Deceased"
             isRed
-            total={formatStats(countryInfo.deaths)}
-            cases={formatStats(countryInfo.todayDeaths)}
+            active={caseType === "deaths"}
+            total={countryInfo.deaths}
+            cases={countryInfo.todayDeaths}
           ></InfoBox>
         </div>
 
@@ -133,10 +134,12 @@ function App() {
 
       <Card className="app-right-container">
         <CardContent>
-          <h3>Live Cases By Country</h3>
-          <Table countries={tableData}></Table>
-          <h3 className="cases-padding">Worldwide new {caseType}</h3>
-          <LineGraph caseType={caseType}></LineGraph>
+          <div className="app-info">
+            <h3>Total Cases By Country</h3>
+            <Table countries={tableData}></Table>
+            <h3 className="cases-padding">Worldwide new {caseType}</h3>
+            <LineGraph caseType={caseType}></LineGraph>
+          </div>
         </CardContent>
       </Card>
     </div>
