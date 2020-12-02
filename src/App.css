@@ -15,6 +15,13 @@ body{
   align-items: center;
   margin-bottom: 20px;
 }
+.app-header >h1{
+  color: #fc3c3c;
+  font-size: 2rem;
+}
+.app-dropdown{
+  background-color: white;
+}
 .app-data{
   display: flex;
   justify-content: space-between;
@@ -26,4 +33,14 @@ body{
 }
 .app-left-container{
   flex: 0.9;
+}
+.app-right-container{
+  display: flex;
+  flex-direction: column;
+}
+.app-graph{
+  flex-grow: 1;
+}
+.cases-padding{
+  padding: 10px;
 }
